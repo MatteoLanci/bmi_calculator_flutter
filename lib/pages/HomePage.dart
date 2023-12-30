@@ -22,8 +22,10 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: [
-            Image.asset('assets/images/test.jpg'),
-            const Text('ciao'),
+            Image.asset(
+              'assets/images/hero_img.webp',
+              width: 200,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Form(

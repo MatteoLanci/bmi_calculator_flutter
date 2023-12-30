@@ -104,7 +104,11 @@ class _SecondPageState extends State<SecondPage> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text('$_bmrResult')
+                  Text(
+                    '$_bmrResult Kcal/giorno',
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.w500),
+                  )
                 ],
               ),
             ),
