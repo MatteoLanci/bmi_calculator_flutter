@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('BMR Calculator'),
       ),
       body: Center(
         child: Column(
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                   });
                 }
               },
-              child: const Text("Inizia a calcolare il BMI"),
+              child: const Text("Inizia a calcolare il BMR"),
             ),
           ],
         ),
