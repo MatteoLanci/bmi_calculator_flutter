@@ -26,10 +26,16 @@ class _SecondPageState extends State<SecondPage> {
           ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-                'Benvenuto ${widget.firstName}, ora qualche domanda su di te!'),
+              'Benvenuto ${widget.firstName}',
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            ),
+            const Text(
+              'ora qualche domanda su di te!',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
