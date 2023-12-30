@@ -13,6 +13,10 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   var _gender = '';
+  var _weight = 0.0;
+  var _height = 0.0;
+  var _age = 0.0;
+  var _bmrResult = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +31,14 @@ class _SecondPageState extends State<SecondPage> {
             Text(
                 'Benvenuto ${widget.firstName}, ora qualche domanda su di te!'),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   TextFormField(
                     keyboardType: TextInputType.number,
-                    obscureText: false,
+                    onChanged: (value) {
+                      _weight = double.parse(value);
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Peso in Kg'),
                   ),
@@ -41,7 +47,9 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                   TextFormField(
                     keyboardType: TextInputType.number,
-                    obscureText: false,
+                    onChanged: (value) {
+                      _height = double.parse(value);
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Altezza in cm'),
@@ -51,7 +59,9 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                   TextFormField(
                     keyboardType: TextInputType.number,
-                    obscureText: false,
+                    onChanged: (value) {
+                      _age = double.parse(value);
+                    },
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Età'),
                   ),
@@ -85,8 +95,16 @@ class _SecondPageState extends State<SecondPage> {
                             child: Text('Altro'),
                           ),
                         ],
-                        onChanged: (v) {}),
-                  )
+                        onChanged: (value) {
+                          setState(() {
+                            _gender = value as String;
+                          });
+                        }),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text('$_bmrResult')
                 ],
               ),
             ),
@@ -109,6 +127,23 @@ class _SecondPageState extends State<SecondPage> {
                     ),
                   ),
                 );
+
+                if (_gender == 'uomo') {
+                  _bmrResult = 88.362 +
+                      (13.397 * _weight) +
+                      (4.799 * _height) -
+                      (5.677 * _age);
+                } else if (_gender == 'donna') {
+                  _bmrResult = 447.593 +
+                      (9.247 * _weight) +
+                      (3.098 * _height) -
+                      (4.330 * _age);
+                }
+
+                setState(() {
+                  // Aggiorna lo stato per visualizzare il risultato
+                  _bmrResult = _bmrResult;
+                });
               },
               child: const Text('Ottieni Risultato'),
             ),
