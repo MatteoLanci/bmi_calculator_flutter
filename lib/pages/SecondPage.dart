@@ -31,6 +31,7 @@ class _SecondPageState extends State<SecondPage> {
               child: Column(
                 children: [
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     obscureText: false,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Peso in Kg'),
@@ -39,6 +40,7 @@ class _SecondPageState extends State<SecondPage> {
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     obscureText: false,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -48,6 +50,7 @@ class _SecondPageState extends State<SecondPage> {
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     obscureText: false,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Età'),
@@ -88,8 +91,26 @@ class _SecondPageState extends State<SecondPage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Prosegui'),
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.watch_later_outlined,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('Elaboro...'),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Ottieni Risultato'),
             ),
           ],
         ),
