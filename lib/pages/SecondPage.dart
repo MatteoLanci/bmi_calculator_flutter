@@ -154,6 +154,12 @@ class _SecondPageState extends State<SecondPage> {
                   // Aggiorna lo stato per visualizzare il risultato
                   _bmrResult = _bmrResult;
                 });
+
+                Future.delayed(const Duration(seconds: 4), () {
+                  Navigator.pushNamed(context, '/resultpage', arguments: {
+                    'bmrRes': _bmrResult.toInt(),
+                  });
+                });
               },
               child: const Text('Ottieni Risultato'),
             ),
