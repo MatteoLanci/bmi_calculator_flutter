@@ -16,7 +16,12 @@ class _BmrResultPageState extends State<BmrResultPage> {
       appBar: AppBar(
         title: const Text('RESULT PAGE'),
       ),
-      body: Text('${widget.bmrRes}'),
+      body: Center(
+        child: Text(
+          '${widget.bmrRes} Kcal/giorno',
+          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+        ),
+      ),
     );
   }
 }
